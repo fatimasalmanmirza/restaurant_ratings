@@ -2,7 +2,7 @@
 
 
 
-def restaurant_ratings(filename):
+def open_file(filename):
     file = open(filename)
     ratings = {}
 
@@ -37,7 +37,28 @@ def add_restaurant(ratings_dict):
         print("That's not a valid score.")
         add_restaurant(ratings_dict)
 
-    # while new_score >=1 and new_score <= 5:
+def restaurant_ratings(filename):
+
+    ratings_dict = open_file(filename)
+
+    while True:
+        print("here are your choices:")
+        print("view ratings")
+        print("Adding a restaurant")
+        print("quitting")
+
+
+
+        user_choices = input("choose from the above choices: ").title()
+        if user_choices.startswith("V"):
+            sort_and_print(ratings_dict)
+        elif user_choices.startswith("A"):
+            add_restaurant(ratings_dict)
+        elif user_choices.startswith("Q"):
+            break
+        else:
+            print("thats not a valid choice")            
+
 
 
 
