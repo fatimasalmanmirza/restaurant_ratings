@@ -13,20 +13,35 @@ def restaurant_ratings(filename):
 
         ratings[items[0]] = items[1]
 
-    sorted_ratings = sorted(ratings.items())
+    return ratings
+
+
+def sort_and_print(ratings_dict):        
 
     # print(sorted_ratings)
 
-    for rating in sorted_ratings:
+    for rating in sorted(ratings_dict.items()):
         print('{} is rated at {}'.format(rating[0], rating[1]))
+
+
+def add_restaurant(ratings_dict):
 
     new_restaurant  = input("restaurant name? ")
     new_score = input("restaurant score? ")
-    ratings[new_restaurant.title()] = new_score
-    sorted_ratings = sorted(ratings.items())
 
-    for rating in sorted_ratings:
-        print('{} is rated at {}'.format(rating[0], rating[1]))
+    if int(new_score) >= 1 and int(new_score) <= 5:
+        ratings_dict[new_restaurant.title()] = new_score
+        sort_and_print(ratings_dict)
 
+    else:
+        print("That's not a valid score.")
+        add_restaurant(ratings_dict)
+
+    # while new_score >=1 and new_score <= 5:
+
+
+
+
+        
 
 restaurant_ratings('scores.txt')
