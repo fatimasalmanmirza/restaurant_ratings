@@ -19,3 +19,14 @@ def restaurant_ratings(filename):
 
     for rating in sorted_ratings:
         print('{} is rated at {}'.format(rating[0], rating[1]))
+
+    new_restaurant  = input("restaurant name? ")
+    new_score = input("restaurant score? ")
+    ratings[new_restaurant.title()] = new_score
+    sorted_ratings = sorted(ratings.items())
+
+    for rating in sorted_ratings:
+        print('{} is rated at {}'.format(rating[0], rating[1]))
+
+
+restaurant_ratings('scores.txt')
